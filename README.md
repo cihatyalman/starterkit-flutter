@@ -1,4 +1,4 @@
-# **StarterKit Flutter**
+# **StarterKit Flutter (AI-Ready)**
 
 Flutter projeleri için hızlı başlangıç sağlayan, düzenli yapı ve yeniden kullanılabilir widget’lar içeren bir başlangıç kiti.
 
@@ -7,6 +7,11 @@ Bu proje, **Feature-Based (Özellik Odaklı)** yapı ile birlikte **MVVM (Model-
 📦 **Kurulum ve Kullanım**
 <br> - Bu repodaki **lib** klasörünü kendi projenizin **lib** klasörü ile değiştirin.
 <br> - İhtiyacınıza göre, kullanmayacağınız klasörleri, örnek feature’ları, demo ekranları kaldırabilirsiniz.
+
+🧠 **Yapay Zeka Destekli Geliştirme (AI-Assisted)**
+<br> Bu starterkit, AI asistanlarının (Claude, Cursor vb.) projenin mimarisine sadık kalarak kod üretebilmesi için özel olarak yapılandırılmıştır.
+<br> - [CLAUDE.md](CLAUDE.md) (veya [AGENT.md](AGENT.md)) dosyası sayesinde AI; Feature-Based ve MVVM mimarisine, klasör yapısına ve kod standartlarına tam uyum sağlar.
+<br> - [plan-generator](ai/plan-generator.md) skill'i ile büyük özellikler eklemeden önce AI'a önce detaylı bir uygulama planı hazırlatabilir, ardından adım adım hatasız kod ürettirebilirsiniz.
 
 ⚠️ **Dikkat Edilmesi Gerekenler**
 <br> - Gerekli bağımlılıklar (packages) yüklü değilse proje hata verebilir.

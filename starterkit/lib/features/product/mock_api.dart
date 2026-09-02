@@ -10,7 +10,7 @@ class MockApi {
         "id": id,
         "title": "Ürün $id",
         "description": "Ürün açıklaması $id",
-        "imageUrl": TextConstants.getRandomImageUrl("product"),
+        "imageUrl": TextConstants.getRandomImageUrl("toy"),
         "price": (newIndex * 10).toDouble(),
       };
     });
