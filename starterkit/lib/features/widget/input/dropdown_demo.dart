@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constants/color_constants.dart';
+import '../../../main.dart';
 import '../../../widgets/custom/custom_dropdown.dart';
 import '../../../widgets/custom/dropdown_bs.dart';
 import '../../../widgets/project/c_text.dart';
@@ -73,7 +73,7 @@ class DropdownDemo extends StatelessWidget {
     return DropdownBS(
       dataList: mapItems,
       title: "Item Seç",
-      bsSelectedColor: ColorConstants.primary,
+      bsSelectedColor: navigatorKey.theme.primaryColor,
       deleteButtonEnabled: true,
       searchInputEnabled: true,
       searchInputHintText: "Ara..",

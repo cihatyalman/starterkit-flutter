@@ -11,10 +11,16 @@ class ThemeHelper {
 
   ThemeData get theme => _base.copyWith(
     colorScheme: ColorScheme.fromSeed(seedColor: ColorConstants.primary),
-    scaffoldBackgroundColor: ColorConstants.background,
     primaryColor: ColorConstants.primary,
     primaryColorLight: ColorConstants.primary.shade300,
     primaryColorDark: ColorConstants.primary.shade900,
+    scaffoldBackgroundColor: ColorConstants.background,
+    extensions: [
+      CustomColors(
+        background: ColorConstants.background,
+        primary: ColorConstants.primary,
+      ),
+    ],
     textTheme: _base.textTheme.apply(fontFamily: "Quicksand"),
     inputDecorationTheme: CustomInput.theme,
     appBarTheme: _base.appBarTheme.copyWith(

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../services/toolkit/extensions.dart';
+import 'package:intl/intl.dart';
 
 abstract class BaseModel {
   String? id;
@@ -37,4 +37,13 @@ abstract class BaseModel {
 
   // factory BaseModel.fromJson(String source) =>
   //     BaseModel.fromMap(json.decode(source));
+}
+
+extension DateTimeExtension on DateTime {
+  String get toISOStringUtc =>
+      '${DateFormat("yyyy-MM-ddTHH:mm:ss").format(toUtc())}Z';
+}
+
+extension StringExtension on String {
+  DateTime? get toDateLocal => DateTime.tryParse(this)?.toLocal();
 }

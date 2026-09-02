@@ -1,16 +1,19 @@
 import 'dart:async';
 
-import '../../services/state_tools/store/exports.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class CounterStore extends StoreData<int> {
-  static final CounterStore instance = CounterStore._internal();
-  CounterStore._internal() : super(0);
+part 'counter_controller.g.dart';
 
+@Riverpod(name: "counterProvider", keepAlive: true)
+class CounterController extends _$CounterController {
   Timer? _timer;
 
-  void reset() => super.data = 0;
+  @override
+  int build() {
+    return 0;
+  }
 
-  void increment() => super.data += 1;
+  void increment() => state += 1;
   void incrementLong([bool isRun = false]) async {
     if (isRun) {
       _timer = Timer.periodic(
@@ -22,7 +25,7 @@ class CounterStore extends StoreData<int> {
     }
   }
 
-  void decrement() => super.data -= 1;
+  void decrement() => state -= 1;
   Future<void> decrementLong([bool isRun = false]) async {
     if (isRun) {
       _timer = Timer.periodic(

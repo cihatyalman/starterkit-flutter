@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import '../../services/toolkit/extensions.dart';
 import 'base_model.dart';
 
 class UserModel extends BaseModel {

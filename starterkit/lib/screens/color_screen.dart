@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../shared/constants/color_constants.dart';
+import '../main.dart';
 import '../widgets/project/c_appbar.dart';
 
 class ColorScreen extends StatelessWidget {
@@ -31,16 +31,16 @@ class ColorScreen extends StatelessWidget {
             Colors.black,
           ]),
           paletWidget("**PRIMARY(700)**", [
-            ColorConstants.primary.shade50,
-            ColorConstants.primary.shade100,
-            ColorConstants.primary.shade200,
-            ColorConstants.primary.shade300,
-            ColorConstants.primary.shade400,
-            ColorConstants.primary.shade500,
-            ColorConstants.primary.shade600,
-            ColorConstants.primary,
-            ColorConstants.primary.shade800,
-            ColorConstants.primary.shade900,
+            context.customColors?.primary.shade50,
+            context.customColors?.primary.shade100,
+            context.customColors?.primary.shade200,
+            context.customColors?.primary.shade300,
+            context.customColors?.primary.shade400,
+            context.customColors?.primary.shade500,
+            context.customColors?.primary.shade600,
+            context.customColors?.primary,
+            context.customColors?.primary.shade800,
+            context.customColors?.primary.shade900,
           ]),
           paletWidget("**GREY**", [
             Colors.grey.shade50,

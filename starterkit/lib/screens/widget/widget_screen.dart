@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
-import '../../shared/constants/color_constants.dart';
 import '../../utils/helpers/widget_helper.dart';
 import '../../widgets/project/c_appbar.dart';
 import '../../widgets/project/c_text.dart';
@@ -43,11 +42,11 @@ class WidgetScreen extends StatelessWidget {
     return InkWell(
       onTap: () async => navigatorKey.currentState?.pushNamed(screenName),
       borderRadius: BorderRadius.circular(12),
-      splashColor: ColorConstants.primary.shade300,
+      splashColor: navigatorKey.customColors.primary.shade300,
       child: Ink(
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: ColorConstants.primary.shade100,
+          color: navigatorKey.customColors.primary.shade100,
           boxShadow: [
             BoxShadow(
               color: Colors.black26,

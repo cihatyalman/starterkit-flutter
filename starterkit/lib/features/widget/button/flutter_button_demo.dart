@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constants/color_constants.dart';
+import '../../../main.dart';
 
 class FlutterButtonDemo extends StatelessWidget {
   const FlutterButtonDemo({super.key});
@@ -22,7 +22,7 @@ class FlutterButtonDemo extends StatelessWidget {
           onPressed: () {},
           style: ButtonStyle(
             side: WidgetStatePropertyAll(
-              BorderSide(color: ColorConstants.primary),
+              BorderSide(color: navigatorKey.theme.primaryColor),
             ),
           ),
           child: Text("Outline"),

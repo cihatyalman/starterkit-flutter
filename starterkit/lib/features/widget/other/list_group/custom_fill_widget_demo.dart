@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/constants/color_constants.dart';
+import '../../../../main.dart';
 import '../../../../widgets/custom/custom_button.dart';
 import '../../../../widgets/custom/custom_fill_widget.dart';
 
@@ -13,7 +13,7 @@ class CustomFillWidgetDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    color = ColorConstants.primary.shade200;
+    color = navigatorKey.customColors.primary.shade200;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

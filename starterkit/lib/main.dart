@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'services/api/dio.dart';
 import 'screens/app/splash_screen.dart';
+import 'shared/constants/color_constants.dart';
 import 'shared/constants/text_constant.dart';
 import 'shared/custom_interceptor.dart';
 import 'shared/route_generator.dart';
@@ -27,7 +29,7 @@ void main() {
   // ...
   lifecycleInit();
 
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -116,4 +118,19 @@ void lifecycleInit() {
   );
 }
 
+// #endregion
+
+// #region Extensions
+extension ContextExtension on BuildContext {
+  ThemeData get theme => Theme.of(this);
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
+  CustomColors? get customColors => Theme.of(this).extension<CustomColors>();
+}
+
+extension NavigatorStateExtension on GlobalKey<NavigatorState> {
+  ThemeData get theme => Theme.of(currentContext!);
+  ColorScheme get colorScheme => Theme.of(currentContext!).colorScheme;
+  CustomColors get customColors =>
+      Theme.of(currentContext!).extension<CustomColors>()!;
+}
 // #endregion

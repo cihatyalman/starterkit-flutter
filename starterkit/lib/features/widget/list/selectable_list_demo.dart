@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constants/color_constants.dart';
+import '../../../main.dart';
 import '../../../utils/helpers/widget_helper.dart';
 import '../../../widgets/custom/selectable_list.dart';
 import '../../../widgets/project/c_text.dart';
@@ -46,14 +46,16 @@ class SelectableListDemo extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: isSelected ? ColorConstants.primary : Colors.grey,
+                    color: isSelected
+                        ? navigatorKey.theme.primaryColor
+                        : Colors.grey,
                   ),
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: CText(
                   item,
                   isBold: isSelected,
-                  color: isSelected ? ColorConstants.primary : null,
+                  color: isSelected ? navigatorKey.theme.primaryColor : null,
                 ),
               );
             },

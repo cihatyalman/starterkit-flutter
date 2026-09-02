@@ -17,17 +17,28 @@ class ColorConstants {
     800: Color(0xFF59478c),
     900: Color(0xFF4a3f70),
   });
+}
 
-  static const black = MaterialColor(0xFF000000, {
-    50: Color(0xFFffffff),
-    100: Color(0xFFfafafa),
-    200: Color(0xFFf5f5f5),
-    300: Color(0xFFe0e0e0),
-    400: Color(0xFFbdbdbd),
-    500: Color(0xFF9e9e9e),
-    600: Color(0xFF757575),
-    700: Color(0xFF424242),
-    800: Color(0xFF1e1e1e),
-    900: Color(0xFF121212),
-  });
+class CustomColors extends ThemeExtension<CustomColors> {
+  final Color background;
+  final MaterialColor primary;
+
+  const CustomColors({required this.background, required this.primary});
+
+  @override
+  CustomColors copyWith({Color? background, MaterialColor? primary}) {
+    return CustomColors(
+      background: background ?? this.background,
+      primary: primary ?? this.primary,
+    );
+  }
+
+  @override
+  CustomColors lerp(ThemeExtension<CustomColors>? other, double t) {
+    if (other is! CustomColors) return this;
+    return CustomColors(
+      background: Color.lerp(background, other.background, t) ?? background,
+      primary: primary,
+    );
+  }
 }

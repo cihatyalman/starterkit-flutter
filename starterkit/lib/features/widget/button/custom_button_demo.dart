@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/constants/color_constants.dart';
+import '../../../main.dart';
 import '../../../widgets/custom/custom_button.dart';
 
 class CustomButtonDemo extends StatelessWidget {
@@ -16,16 +16,16 @@ class CustomButtonDemo extends StatelessWidget {
         CustomButton(
           minWidth: 120,
           elevation: 1,
-          backgroundColor: ColorConstants.primary.shade100,
-          textColor: ColorConstants.primary,
+          backgroundColor: navigatorKey.customColors.primary.shade100,
+          textColor: navigatorKey.theme.primaryColor,
           onPressed: () {},
           title: "Elevated",
         ),
         CustomButton(
           minWidth: 120,
           backgroundColor: Colors.transparent,
-          borderColor: ColorConstants.primary,
-          textColor: ColorConstants.primary,
+          borderColor: navigatorKey.theme.primaryColor,
+          textColor: navigatorKey.theme.primaryColor,
           onPressed: () {},
           title: "Outline",
         ),
@@ -44,7 +44,7 @@ class CustomButtonDemo extends StatelessWidget {
         ),
         CustomButton(
           backgroundColor: Colors.transparent,
-          textColor: ColorConstants.primary,
+          textColor: navigatorKey.theme.primaryColor,
           onPressed: () {},
           title: "Text",
         ),

@@ -6,13 +6,10 @@ import '../mixins/design_mixin.dart';
 final hw = WidgetHelper();
 
 class WidgetHelper with DesignMixin {
-  final edgePadding = 12.0;
-  final bottomPadding = 56.0;
-
   Widget logoWidget({double size = 140}) {
     return Center(
       child: ClipRRect(
-        borderRadius: radius(24),
+        borderRadius: BorderRadius.circular(24),
         child: FlutterLogo(size: size),
       ),
     );

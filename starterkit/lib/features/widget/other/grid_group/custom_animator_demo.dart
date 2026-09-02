@@ -2,14 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../../../shared/constants/color_constants.dart';
+import '../../../../main.dart';
 import '../../../../widgets/custom/custom_animator.dart';
 import '../../../../widgets/project/c_text.dart';
 
 class CustomAnimatorDemo extends StatelessWidget {
   CustomAnimatorDemo({super.key});
 
-  final color = ColorConstants.primary;
+  final color = navigatorKey.theme.primaryColor;
 
   @override
   Widget build(BuildContext context) {

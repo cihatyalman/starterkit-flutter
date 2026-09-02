@@ -1,10 +1,11 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
-import '../../shared/constants/color_constants.dart';
+import '../../main.dart';
 import '../../shared/route_generator.dart';
-// import '../color_screen.dart';
+import '../color_screen.dart';
 import '../home_screen.dart';
+import '../product/product_list_screen.dart';
 import '../profile/profile_screen.dart';
 import '../widget/widget_screen.dart';
 
@@ -29,13 +30,15 @@ class _MainScreenState extends State<MainScreen> {
   final iconList = [
     Icons.home_rounded,
     Icons.widgets_rounded,
-    // Icons.invert_colors,
+    Icons.invert_colors,
+    Icons.storefront,
     Icons.account_circle_rounded,
   ];
   final screenList = [
     HomeScreen.route,
     WidgetScreen.route,
-    // ColorScreen.route,
+    ColorScreen.route,
+    ProductListScreen.route,
     ProfileScreen.route,
   ];
   // #endregion
@@ -55,15 +58,15 @@ class _MainScreenState extends State<MainScreen> {
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-        backgroundColor: ColorConstants.background,
+        backgroundColor: navigatorKey.theme.scaffoldBackgroundColor,
         borderColor: Colors.grey.shade400,
         borderWidth: 1,
         height: 52,
         itemCount: iconList.length,
         tabBuilder: (index, isActive) {
           final color = isActive
-              ? ColorConstants.primary.shade800
-              : ColorConstants.primary.shade300;
+              ? navigatorKey.customColors.primary.shade800
+              : navigatorKey.customColors.primary.shade300;
           return Center(child: Icon(iconList[index], color: color));
         },
         gapLocation: GapLocation.none,

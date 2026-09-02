@@ -6,6 +6,9 @@ import '../screens/color_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/app/splash_screen.dart';
 import '../screens/app/main_screen.dart';
+import '../screens/product/product_details_screen.dart';
+import '../screens/product/product_edit_screen.dart';
+import '../screens/product/product_list_screen.dart';
 import '../screens/profile/profile_screen.dart';
 import '../screens/widget/image_widget_screen.dart';
 import '../screens/widget/input_widget_screen.dart';
@@ -30,6 +33,8 @@ class RouteGenerator {
         return _getPageRouteBuilderZero(WidgetScreen());
       case ColorScreen.route:
         return _getPageRouteBuilderZero(ColorScreen());
+      case ProductListScreen.route:
+        return _getPageRouteBuilderZero(ProductListScreen());
       case ProfileScreen.route:
         return _getPageRouteBuilderZero(ProfileScreen(settings: settings));
       // #endregion
@@ -44,6 +49,14 @@ class RouteGenerator {
         return _customPageRouteBuilder(ListWidgetScreen());
       case OtherWidgetScreen.route:
         return _customPageRouteBuilder(OtherWidgetScreen());
+      // #endregion
+      // #region Product - Feature Screens
+      case ProductDetailsScreen.route:
+        return _customPageRouteBuilder(
+          ProductDetailsScreen(settings: settings),
+        );
+      case ProductEditScreen.route:
+        return _customPageRouteBuilder(ProductEditScreen(settings: settings));
       // #endregion
       default:
         return MaterialPageRoute(

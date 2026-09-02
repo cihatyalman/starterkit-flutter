@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../features/counter/exports.dart';
+import '../features/riverpod/exports.dart';
 import '../widgets/project/c_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +15,11 @@ class HomeScreen extends StatelessWidget {
       appBar: CAppBar(title: "Anasayfa").build(context),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [CounterDemo()],
+        children: [
+          Expanded(child: CounterDemo()),
+          Divider(),
+          Expanded(child: RiverpodDemo()),
+        ],
       ),
     );
   }

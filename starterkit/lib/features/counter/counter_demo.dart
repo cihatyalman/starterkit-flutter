@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import '../../shared/constants/color_constants.dart';
-import 'counter_repository.dart';
-import 'counter_view_model.dart';
 
+import '../../main.dart';
 import '../../widgets/project/c_text.dart';
+import 'counter_store.dart';
 
 class CounterDemo extends StatelessWidget {
   CounterDemo({super.key});
-  final vm = CounterViewModel(CounterRepository.instance);
+
+  final store = CounterStore.instance;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
-      spacing: 12,
+      mainAxisAlignment: MainAxisAlignment.center,
+      spacing: 8,
       children: [
+        CText("Store", isBold: true, size: 24),
         textWidget(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +30,7 @@ class CounterDemo extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       width: 56,
-      child: vm.store.counter.listen(
+      child: store.listen(
         (data, _) => CText(data.toString(), isBold: true, size: 40),
       ),
     );
@@ -37,14 +38,14 @@ class CounterDemo extends StatelessWidget {
 
   Widget decrementButton() {
     return GestureDetector(
-      onTap: () => vm.decrement(),
-      onLongPressStart: (details) => vm.decrementLong(true),
-      onLongPressEnd: (details) => vm.decrementLong(false),
+      onTap: () => store.decrement(),
+      onLongPressStart: (details) => store.decrementLong(true),
+      onLongPressEnd: (details) => store.decrementLong(false),
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: ColorConstants.primary,
+          color: navigatorKey.theme.primaryColor,
         ),
         child: Icon(Icons.remove, color: Colors.white),
       ),
@@ -53,14 +54,14 @@ class CounterDemo extends StatelessWidget {
 
   Widget incrementButton() {
     return GestureDetector(
-      onTap: () => vm.increment(),
-      onLongPressStart: (details) => vm.incrementLong(true),
-      onLongPressEnd: (details) => vm.incrementLong(false),
+      onTap: () => store.increment(),
+      onLongPressStart: (details) => store.incrementLong(true),
+      onLongPressEnd: (details) => store.incrementLong(false),
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: ColorConstants.primary,
+          color: navigatorKey.theme.primaryColor,
         ),
         child: Icon(Icons.add, color: Colors.white),
       ),
@@ -69,12 +70,12 @@ class CounterDemo extends StatelessWidget {
 
   Widget resetButton() {
     return GestureDetector(
-      onTap: () => vm.reset(),
+      onTap: () => store.reset(),
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: ColorConstants.primary,
+          color: navigatorKey.theme.primaryColor,
         ),
         child: Icon(Icons.restart_alt_rounded, color: Colors.white),
       ),

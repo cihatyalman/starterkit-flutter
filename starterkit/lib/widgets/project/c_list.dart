@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/helpers/widget_helper.dart';
+import 'c_text.dart';
 
 class CList<T> extends StatelessWidget {
   bool isLoading;
@@ -14,6 +14,7 @@ class CList<T> extends StatelessWidget {
   bool reverse;
   ScrollPhysics? physics;
   Widget? emptyWidget;
+  Widget? loadingWidget;
   Widget Function(BuildContext context, int index)? separatorWidget;
 
   CList({
@@ -29,13 +30,16 @@ class CList<T> extends StatelessWidget {
     this.reverse = false,
     this.physics,
     this.emptyWidget,
+    this.loadingWidget,
     this.separatorWidget,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading && dataList.isEmpty) return hw.circleLoading();
-    if (dataList.isEmpty) return emptyWidget ?? hw.emptyWidget();
+    if (isLoading && dataList.isEmpty) {
+      return loadingWidget ?? _circleLoading();
+    }
+    if (dataList.isEmpty) return emptyWidget ?? _emptyWidgett();
     return onRefresh != null
         ? RefreshIndicator(onRefresh: onRefresh!, child: _buildWidget())
         : _buildWidget();
@@ -63,10 +67,23 @@ class CList<T> extends StatelessWidget {
           WidgetsBinding.instance.addPostFrameCallback(
             (_) => onContinue?.call(),
           );
-          return isLoading ? hw.circleLoading() : const SizedBox.shrink();
+          return isLoading ? _circleLoading() : const SizedBox.shrink();
         }
         return itemWidget(dataList[index], index);
       },
     );
+  }
+
+  Widget _circleLoading({Color? color, double size = 24, double stroke = 4}) {
+    return Center(
+      child: SizedBox.square(
+        dimension: size,
+        child: CircularProgressIndicator(color: color, strokeWidth: stroke),
+      ),
+    );
+  }
+
+  Widget _emptyWidgett() {
+    return Center(child: Transform.scale(scale: 1.5, child: CText("Empty")));
   }
 }

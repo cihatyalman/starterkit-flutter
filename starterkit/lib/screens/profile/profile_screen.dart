@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: HeaderWidget(
-                  profileImageUrl: TextConstants.randomImageUrl,
+                  profileImageUrl: TextConstants.getRandomImageUrl("profile"),
                 ),
               ),
             ]),
