@@ -10,8 +10,9 @@ Bu proje, **Feature-Based (Özellik Odaklı)** yapı ile birlikte **MVVM (Model-
 
 🧠 **Yapay Zeka Destekli Geliştirme (AI-Assisted)**
 <br> Bu starterkit, AI asistanlarının (Claude, Cursor vb.) projenin mimarisine sadık kalarak kod üretebilmesi için özel olarak yapılandırılmıştır.
-<br> - [CLAUDE.md](CLAUDE.md) (veya [AGENT.md](AGENT.md)) dosyası sayesinde AI; Feature-Based ve MVVM mimarisine, klasör yapısına ve kod standartlarına tam uyum sağlar.
-<br> - [plan-generator](ai/plan-generator.md) skill'i ile büyük özellikler eklemeden önce AI'a önce detaylı bir uygulama planı hazırlatabilir, ardından adım adım hatasız kod ürettirebilirsiniz.
+<br> - [CLAUDE.md](CLAUDE.md), AI'a projenin mimarisini ve kodlama standartlarını anlatan ana dosyadır.
+<br> - [flutter-coder](ai/flutter-coder.md), AI'ın her kod üretiminde projenin mimarisine, klasör yapısına ve kod standartlarına tam uyum sağlamasını garantileyen prompt'tur.
+<br> - [plan-generator](ai/plan-generator.md), büyük özellikler eklemeden önce AI'a önce detaylı bir uygulama planı hazırlatabilir, ardından adım adım hatasız kod ürettirebilirsiniz.
 
 ⚠️ **Dikkat Edilmesi Gerekenler**
 <br> - Gerekli bağımlılıklar (packages) yüklü değilse proje hata verebilir.

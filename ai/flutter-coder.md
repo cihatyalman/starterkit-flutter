@@ -1,12 +1,11 @@
-# AGENT.md
+---
+name: flutter-coder
+description: Code Generation and Architectural Guidelines for Flutter Projects
+---
 
-This file provides guidance to AI agents (like Claude Code, ChatGPT, Gemini, etc.) when working with code in this repository.
+# Flutter Coder
 
-## Project Overview
-
-StarterKit — Flutter mobile app (iOS + Android). Feature-based architecture, MVVM design pattern.
-
-Flutter project lives in `starterkit/` subdirectory (not repo root).
+Flutter Coder is a specialized agent for Flutter development. This document provides guidelines for code generation and architectural standards.
 
 ## Development Guidelines
 

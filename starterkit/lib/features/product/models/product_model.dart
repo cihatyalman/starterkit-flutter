@@ -20,12 +20,14 @@ class ProductModel extends BaseModel {
 
   @override
   Map<String, dynamic> toMap() {
-    return {
+    final result = super.toMap();
+    result.addAll({
       'title': title,
       'description': description,
       'imageUrl': imageUrl,
       'price': price,
-    };
+    });
+    return result;
   }
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {

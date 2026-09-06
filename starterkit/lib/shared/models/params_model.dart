@@ -1,19 +1,19 @@
 import 'dart:convert';
 
 class ParamsModel {
-  int? pageSize;
-  dynamic lastRecordValue;
+  int? limit;
+  dynamic after;
 
-  ParamsModel({this.pageSize, this.lastRecordValue});
+  ParamsModel({this.limit, this.after});
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
-    if (pageSize != null) {
-      result.addAll({'page-size': pageSize});
+    if (limit != null) {
+      result.addAll({'limit': limit});
     }
-    if (lastRecordValue != null) {
-      result.addAll({'last-record-value': lastRecordValue});
+    if (after != null) {
+      result.addAll({'after': after});
     }
 
     return result;
